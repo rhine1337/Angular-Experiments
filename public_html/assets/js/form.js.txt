@@ -1,0 +1,57 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+var form = document.getElementById("reg-form");
+form.addEventListener("submit",formSubmit,false);
+function formSubmit(e){
+    if (e.preventDefault) {
+       e.preventDefault();
+    }
+    e.returnValue = false;
+    
+    var fname = document.forms["reg-form"]["fname"].value;
+    var lname = document.forms["reg-form"]["lname"].value;
+    var email = document.forms["reg-form"]["email"].value;
+    var gender = document.forms["reg-form"]["gender"].value;
+    var phno = document.forms["reg-form"]["phno"].value;
+    var age = document.forms["reg-form"]["age"].value;
+    var bgcolor = document.forms["reg-form"]["bgcolor"].value;
+    var cardholder = document.getElementById("card-holder")
+    
+    showConfirmationPopup(fname,lname,email,gender,phno,age,bgcolor);
+    appendMarkup(cardholder,generateCardMarkup(fname,lname,email,gender,phno,age,bgcolor));
+    document.getElementById("reg-form").clear();
+    return false;
+}
+
+function generateCardMarkup(fname,lname,email,gender,phno,age,bgcolor){
+    var markup  = "<div class=\"bit-4\">";
+    markup += "<div class=\"card animated bounce\" style=\"background:"+bgcolor+";\">";
+    markup += "<a class=\"cross\" href=\"#\">x</a>"
+    markup += "<h1>"+fname+" "+lname+"</h1>";
+    markup += "<h2><strong></strong>Email: "+email+"</h2>";
+    markup += "<h2><strong></strong>Contact No.: "+phno+"</h2>";
+    markup += "<h2><strong></strong>Age: "+age+"</h2>";
+    markup += "<h2><strong></strong>Gender: "+gender+"</h2>";
+    markup += '</div>';
+    markup += '</div>';
+    return markup;
+}
+
+function appendMarkup(el, str) {
+  var div = document.createElement('div');
+  div.innerHTML = str;
+  while (div.children.length > 0) {
+    el.appendChild(div.children[0]);
+  }
+}
+
+function showConfirmationPopup(fname,lname,email,gender,phno,age,bgcolor){
+    //appendMarkup(document.body,generateCardMarkup(fname,lname,email,gender,phno,age,bgcolor));
+    return false;
+}
+//var html = '<h1 id="title">Some Title</h1><span style="display:inline-block; width=100px;">Some arbitrary text</span>';
+//appendHtml(document.body, html); 

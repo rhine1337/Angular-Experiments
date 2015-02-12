@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/css/core.css" type="text/css" rel="stylesheet">
+    </head>
+    <body ng-app="employeeApp">
+        <div class="toolbar">
+            <div class="tabs">
+                <ul>
+                    <li class="tabitem active"><a href="#box1">ALL<span></span></a></li>
+                    <li class="tabitem"><a href="#box2">FAVORITES<span></span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="frame">
+            <div ng-view></div><!-- stuff would be injected here -->
+        </div>
+                
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="app/app.routes.js"></script>
+    </body>
+
+</html>
