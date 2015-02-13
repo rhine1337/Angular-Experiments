@@ -11,22 +11,23 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="assets/css/core.css" type="text/css" rel="stylesheet">
     </head>
-    <body ng-app="employeeApp">
-        <div class="toolbar">
+    <body>
+        <div class="toolbar" ng-app="toolbarApp">
             <div class="tabs">
-                <ul>
-                    <li class="tabitem active"><a href="#box1">ALL<span></span></a></li>
-                    <li class="tabitem"><a href="#box2">FAVORITES<span></span></a></li>
+                <ul ng-controller="toolbarController">
+                    <li class="tabitem active" ng-class="navClass('home')"><a href="#/home">ALL<span></span></a></li>
+                    <li class="tabitem" ng-class="navClass('empDetails')"><a href="#/empdetails">FAVORITES<span></span></a></li>
                 </ul>
             </div>
         </div>
-        <div class="frame">
+        <div class="frame" ng-app="employeeApp">
             <div ng-view></div><!-- stuff would be injected here -->
         </div>
                 
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="app/app.modules.js"></script>
         <script src="app/app.routes.js"></script>
     </body>
 

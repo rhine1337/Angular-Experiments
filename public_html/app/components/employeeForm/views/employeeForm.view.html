@@ -1,48 +1,50 @@
-<div class="bit-4">
-    <div class=box></div>
-</div>
-<div class="bit-2">
-    <div class="card animated bounceInDown"><h1><strong>{{message}}</strong></h1>
-        <div class="frame">
-            <form class="align-vertical" id="reg-form" name="reg-form">
-            <div class="bit-2">
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="fname" required="" placeholder="John">
+<div ng-app="formProcessingApp">
+    <div class="bit-4">
+        <div class=box></div>
+    </div>
+    <div class="bit-2">
+        <div class="card animated bounceInDown"><h1><strong>hi</strong></h1>
+            <div class="frame">
+                <form class="align-vertical" id="reg-form" name="reg-form" ng-controller="regFormController" ng-submit="submitForm()" novalidate="">
+                <div class="bit-2">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" required="" placeholder="John" ng-model="formData.fname">
+                </div>
+                <div class="bit-2">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" placeholder="Doe" ng-model="formData.lname">
+                </div>
+                <div class="bit-2">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required=""  placeholder="john@org.com" ng-model="formData.email">
+                </div>
+                <div class="bit-2">
+                    <label for="phno">Phone No</label>
+                    <input type="text" id="phno" name="phno" pattern="[0-9]{10}" placeholder="xxxxxxxxxxx" ng-model="formData.phno">
+                </div>
+                <div class="bit-3">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required="" ng-model="formData.gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="bit-3">
+                    <label for="age">Age</label>
+                    <input type="text" id="age" name="age" ng-model="formData.age">
+                </div>
+                <div class="bit-3">
+                    <label for="age">Employee ID</label>
+                    <input type="text" id="empId" name="empId" value="xxxxxx" pattern="[0-9]{6}" required="" ng-model="formData.empId">
+                </div>
+                <div class="bit-1">
+                    <button type="submit">Submit Form</button>
+                </div>
+            </form>
             </div>
-            <div class="bit-2">
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" placeholder="Doe">
-            </div>
-            <div class="bit-2">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required=""  placeholder="john@org.com">
-            </div>
-            <div class="bit-2">
-                <label for="phno">Phone No</label>
-                <input type="text" id="phno" name="phno" pattern="[0-9]{10}" placeholder="xxxxxxxxxxx">
-            </div>
-            <div class="bit-3">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required="">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </div>
-            <div class="bit-3">
-                <label for="age">Age</label>
-                <input type="text" id="age" name="age">
-            </div>
-            <div class="bit-3">
-                <label for="age">Background Color</label>
-                <input type="color" id="bgcolor" name="bgcolor" value="#3c6bc4" >
-            </div>
-            <div class="bit-1">
-                <button type="submit">Submit Form</button>
-            </div>
-        </form>
         </div>
     </div>
-</div>
-<div class="bit-4">
-    <div class=box></div>
+    <div class="bit-4">
+        <div class=box></div>
+    </div>
 </div>
