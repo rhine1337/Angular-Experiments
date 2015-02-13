@@ -1,50 +1,56 @@
-<div ng-app="formProcessingApp">
+<div>
     <div class="bit-4">
         <div class=box></div>
     </div>
     <div class="bit-2">
         <div class="card animated bounceInDown"><h1><strong>hi</strong></h1>
-            <div class="frame">
-                <form class="align-vertical" id="reg-form" name="reg-form" ng-controller="regFormController" ng-submit="submitForm()" novalidate="">
+            <div class="frame" ng-controller="regFormController">
+                <form class="align-vertical" id="reg-form" name="reg-form" novalidate="">
                 <div class="bit-2">
                     <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="fname" required="" placeholder="John" ng-model="formData.fname">
+                    <input type="text" id="fname" name="fname" required="" placeholder="John" ng-model="emp.fname">
                 </div>
                 <div class="bit-2">
                     <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lname" placeholder="Doe" ng-model="formData.lname">
+                    <input type="text" id="lname" name="lname" placeholder="Doe" ng-model="emp.lname">
                 </div>
                 <div class="bit-2">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required=""  placeholder="john@org.com" ng-model="formData.email">
+                    <input type="email" id="email" name="email" required=""  placeholder="john@org.com" ng-model="emp.email">
                 </div>
                 <div class="bit-2">
                     <label for="phno">Phone No</label>
-                    <input type="text" id="phno" name="phno" pattern="[0-9]{10}" placeholder="xxxxxxxxxxx" ng-model="formData.phno">
+                    <input type="text" id="phno" name="phno" pattern="[0-9]{10}" placeholder="xxxxxxxxxxx" ng-model="emp.phno">
                 </div>
                 <div class="bit-3">
                     <label for="gender">Gender</label>
-                    <select id="gender" name="gender" required="" ng-model="formData.gender">
+                    <select id="gender" name="gender" required="" ng-model="emp.gender">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </div>
                 <div class="bit-3">
                     <label for="age">Age</label>
-                    <input type="text" id="age" name="age" ng-model="formData.age">
+                    <input type="text" id="age" name="age" ng-model="emp.age">
                 </div>
                 <div class="bit-3">
                     <label for="age">Employee ID</label>
-                    <input type="text" id="empId" name="empId" value="xxxxxx" pattern="[0-9]{6}" required="" ng-model="formData.empId">
+                    <input type="text" id="empId" name="empId" value="xxxxxx" pattern="[0-9]{6}" required="" ng-model="emp.empId">
                 </div>
-                <div class="bit-1">
-                    <button type="submit">Submit Form</button>
+                <div class="bit-3">
+                    <input type="button" ng-click="reset()" value="Reset" />
+                </div>
+                <div class="bit-3">
+                    <input type="submit" ng-click="update(emp)" value="Save" />
                 </div>
             </form>
             </div>
         </div>
     </div>
     <div class="bit-4">
-        <div class=box></div>
+        <div class=box>
+            <pre>form = {{emp | json}}</pre>
+            <pre>master = {{master | json}}</pre>
+        </div>
     </div>
 </div>

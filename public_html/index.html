@@ -11,8 +11,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="assets/css/core.css" type="text/css" rel="stylesheet">
     </head>
-    <body>
-        <div class="toolbar" ng-app="toolbarApp">
+    <body ng-app="employeeApp">
+        <!--
+        <div class="toolbar" ng-app="toolbarApp">-->
+        <div class="toolbar">
             <div class="tabs">
                 <ul ng-controller="toolbarController">
                     <li class="tabitem active" ng-class="navClass('home')"><a href="#/home">ALL<span></span></a></li>
@@ -20,7 +22,8 @@ and open the template in the editor.
                 </ul>
             </div>
         </div>
-        <div class="frame" ng-app="employeeApp">
+        
+        <div class="frame">
             <div ng-view></div><!-- stuff would be injected here -->
         </div>
                 

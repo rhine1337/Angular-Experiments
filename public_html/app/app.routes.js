@@ -2,7 +2,7 @@
 employeeApp.config(function($routeProvider) {
     $routeProvider
         // route for the home page
-        .when('/home', {
+        .when('/', {
             templateUrl : 'app/components/employeeForm/views/employeeForm.view.html',
             controller  : 'empRegFormController'
         })
@@ -16,7 +16,7 @@ employeeApp.config(function($routeProvider) {
             templateUrl : 'pages/contact.html',
             controller  : 'contactController'
         })
-        .otherwise({redirectTo : '/home'});
+        .otherwise({redirectTo : '/'});
 });
 
 // create the controller and inject Angular's $scope
@@ -33,15 +33,24 @@ employeeApp.controller('contactController', function($scope) {
     $scope.message = 'Contact us! JK. This is just a demo.';
 });
 
-toolbarApp.controller('toolbarController', ['$scope', '$location', function ($scope, $location) {
+employeeApp.controller('toolbarController', ['$scope', '$location', function ($scope, $location) {
     $scope.navClass = function (page) {
         var currentRoute = $location.path().substring(1) || 'home';
         return page === currentRoute ? 'active' : '';
     };        
 }]);
+/*
+*/
+//formProcessingApp.controller('regFormController',function($scope){
+employeeApp.controller('regFormController',function($scope){
+    $scope.master = {};
+    $scope.update = function(emp) {
+        $scope.master = angular.copy(emp);
+    };
 
-formProcessingApp.controller('regFormController',function($scope){
-    $scope.formData = {};
-    $scope.submission = false;
-    console.log($scope.formData);
+    $scope.reset = function() {
+        $scope.emp = angular.copy($scope.master);
+    };
+
+    $scope.reset();
 });
