@@ -7,8 +7,8 @@ employeeApp.config(function($routeProvider) {
             controller  : 'empRegFormController'
         })
         // route for the about page
-        .when('/about', {
-            templateUrl : 'pages/about.html',
+        .when('/empdetails', {
+            templateUrl : 'app/components/empDetails/views/empDetails.view.html',
             controller  : 'aboutController'
         })
         // route for the contact page
@@ -42,15 +42,13 @@ employeeApp.controller('toolbarController', ['$scope', '$location', function ($s
 /*
 */
 //formProcessingApp.controller('regFormController',function($scope){
-employeeApp.controller('regFormController',function($scope){
-    $scope.master = {};
-    $scope.update = function(emp) {
+employeeApp.controller('formCtrl', ['$scope', function($scope) {
+      $scope.master = {};
+      $scope.update = function(emp) {
         $scope.master = angular.copy(emp);
-    };
-
-    $scope.reset = function() {
+      };
+      $scope.reset = function() {
         $scope.emp = angular.copy($scope.master);
-    };
-
-    $scope.reset();
-});
+      };
+      $scope.reset();
+    }]);
